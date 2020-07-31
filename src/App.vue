@@ -3,7 +3,7 @@
     <b-loading is-full-page=true :active="isLoading"></b-loading>
     <section class="hero is-fullheight">
         <transition name="transition" mode="out-in">
-          <router-view style="min-height: 100vh;"/>
+          <router-view/>
         </transition>
     </section>
   </div>
@@ -64,6 +64,14 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.Unknown {
+  color: lightskyblue;
 }
 
 .card {

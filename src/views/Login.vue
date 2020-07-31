@@ -10,23 +10,18 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <br>
+    <div class="container">
       <div class="columns is-centered">
-        <div class="column"> </div>
-        <div class="column is-one-half">
-          <div class="container">
-            <LoginForm/>
-          </div>
+        <div class="column is-one-fifth"></div>
+        <div class="column">
+          <LoginForm/>
         </div>
-        <div class="column is-one-fifth">
-          <div class="container">
-            <ServiceStatus/>
-          </div>
+        <div class="column">
+          <ServiceStatus/>
         </div>
-        <div class="column"> </div>
+        <div class="column is-one-fifth"></div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

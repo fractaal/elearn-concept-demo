@@ -7,23 +7,10 @@
         <div class="divider has-text-white">
           NOTIFICATIONS
         </div>
-        <div class="container">
-          <div class="card">
-            <div class="card-content">
-              <div class="media-content">
-                <p class="title is-6 has-text-white">Service Interruption</p>
-                <p class="subtitle is-6 has-text-white">XU eLearn will have a service interruption by...</p>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="card has-background-danger">
-            <div class="card-content">
-              <div class="media-content">
-                <p class="title is-6 has-text-white">Crash Detected</p>
-                <p class="subtitle is-6 has-text-white">Fuck</p>
-              </div>
-            </div>
+        <div class="container" style="max-height: 285px; overflow-y: auto;">
+          <b-loading :active="areNotificationsLoading"></b-loading>
+          <div v-for="notif in notifs" :key="notif.index">
+            <Notification :title=notif.title :desc=notif.desc></Notification>
           </div>
         </div>
       </div>
@@ -31,9 +18,24 @@
 </template>
 
 <script>
+import notifs from "@/static_notifications"
+
 export default {
   components: {
-    ServiceLineStatus: () => import('@/components/ServiceLineStatus.vue')
+    ServiceLineStatus: () => import('@/components/ServiceLineStatus.vue'),
+    Notification: () => import('@/components/Notification.vue'),
+  },
+  data() {
+    return {
+      notifs: [],
+      areNotificationsLoading: true,
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.notifs = notifs;
+      this.areNotificationsLoading = false;
+    }, 1500)
   }
 }
 </script>
