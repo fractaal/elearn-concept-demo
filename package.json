@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
     "@vue/cli": "^4.4.6",
     "buefy": "^0.8.20",
     "core-js": "^3.6.5",

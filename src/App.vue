@@ -44,18 +44,20 @@ export default {
 
 @media (min-width: 1px) {
   .login {
-    background:#296EB4;
+    background-image: url("assets/gradient-01.png");
+    background-attachment: fixed;
   }
 }
 
 @media (min-width: 1000px) {
   .login {
-    background-image: url("assets/gradient.png");
+    background-image: url("assets/gradient-01.png");
+    background-attachment: fixed;
   }
 }
 
 .main {
-  background: rgba(12,12,12,1);
+  background: rgba(24,24,24,1);
 }
 
 #app {

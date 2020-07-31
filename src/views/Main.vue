@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="slow-reveal">
+    <transition name="slow-reveal" mode="out-in">
       <section class="hero is-fullheight" v-if="show">
         <div class="hero-body">
           <div class="container">
@@ -21,12 +21,16 @@ export default {
   data() {
     return {
       show: false,
+      showContinue: false,
     }
   },
   components: {
   },
   mounted() {
     this.show = true;
+    setTimeout(() => {
+      this.$router.push('/user')
+    }, 5000)
   }
 }
 </script>

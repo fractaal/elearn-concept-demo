@@ -16,8 +16,8 @@
                             <b-input id="id" placeholder="University ID"></b-input>
                         </b-field>-->
                         <h1 class="title has-text-centered has-text-white">Ben Jude</h1>
-                        <b-field class="has-text-white">
-                            <b-input id="password" placeholder="Password" type="password"></b-input>
+                        <b-field class="has-text-white" :type="type" :message="message">
+                            <b-input id="password" placeholder="Password" type="password" v-model="value"></b-input>
                         </b-field>
                         <br>
                         <div class="has-text-centered">
@@ -34,9 +34,26 @@
 <script>
 import bus from '@/main'
 export default {
+    data() {
+        return {
+            value: "",
+            type: "",
+            message: [],
+        }
+    },
     methods: {
         login() {
-            bus.$emit("login");
+            if (this.value.length > 8) {
+                bus.$emit("login");
+                this.type = "is-success"
+                this.message = []
+            } else if (this.value.length !== 0) {
+                this.type = "is-danger"
+                this.message = ["Password is too short (8 characters at least)"]
+            } else {
+                this.type = "is-danger"
+                this.message = ["No password entered"]
+            }
         },
     }
 }

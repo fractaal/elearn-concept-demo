@@ -10,7 +10,7 @@
         <div class="container" style="max-height: 285px; overflow-y: auto;">
           <b-loading :active="areNotificationsLoading"></b-loading>
           <div v-for="notif in notifs" :key="notif.index">
-            <Notification :title=notif.title :desc=notif.desc></Notification>
+            <Notification :title=notif.title :desc=notif.desc :type=notif.type></Notification>
           </div>
         </div>
       </div>
