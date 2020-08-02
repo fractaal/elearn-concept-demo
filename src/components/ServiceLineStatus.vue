@@ -38,8 +38,7 @@ export default {
     },
     mounted() {
         setTimeout(() => {
-            let Num = Math.floor(Math.random() * 3) + 1;
-            console.log(Num);   
+            let Num = Math.floor(Math.random() * 3) + 1; 
             switch (Num) {
                 case 1:
                     this.statusDelayed = "Online";

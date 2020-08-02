@@ -8,7 +8,7 @@
           NOTIFICATIONS
         </div>
         <div class="container" style="max-height: 285px; overflow-y: auto;">
-          <b-loading :active="areNotificationsLoading"></b-loading>
+          <b-loading :active="notifs.length === 0"></b-loading>
           <div v-for="notif in notifs" :key="notif.index">
             <Notification :title=notif.title :desc=notif.desc :type=notif.type></Notification>
           </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import notifs from "@/static_notifications"
+import get from "@/spoof-api.js"
 
 export default {
   components: {
@@ -28,14 +28,12 @@ export default {
   data() {
     return {
       notifs: [],
-      areNotificationsLoading: true,
     }
   },
   mounted() {
-    setTimeout(() => {
+    get("Notifications").then((notifs) => {
       this.notifs = notifs;
-      this.areNotificationsLoading = false;
-    }, 1500)
+    })
   }
 }
 </script>

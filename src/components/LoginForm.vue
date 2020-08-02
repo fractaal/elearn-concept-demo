@@ -21,7 +21,7 @@
                         </b-field>
                         <br>
                         <div class="has-text-centered">
-                            <b-button native-type="submit" type="is-white" outlined size="is-medium" rounded=true @click="login">Log in</b-button>
+                            <b-button native-type="submit" type="is-white" outlined size="is-medium" :rounded=true @click="login">Log in</b-button>
                         </div>
                     </form>
 

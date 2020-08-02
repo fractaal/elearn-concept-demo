@@ -17,18 +17,24 @@ export default {
     desc: String,
     type: String,
   },
-  computed: {
-    trunctatedDesc() {
-      return (this.desc.length > 64 ? this.desc.substring(0,64) + "..." : this.desc)
-    },
-    cardStatus() {
-      if (this.type) {
-        return "has-background-"+this.type;
-      } else {
-        return "";
-      }
+  data() {
+    return {
+      trunctatedDesc: "",
+      cardStatus: ""
     }
   },
+
+  mounted() {
+    console.log(`${this.title} init`)
+    this.trunctatedDesc = (this.desc.length > 64 ? this.desc.substring(0,64) + "..." : this.desc)
+
+    if (this.type) {
+      this.cardStatus = "has-background-"+this.type;
+    } else {
+      this.cardStatus = "";
+    }
+  },
+
   methods: {
     displayDetails() {
       this.$buefy.dialog.alert({
