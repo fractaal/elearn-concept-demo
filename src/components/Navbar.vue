@@ -1,6 +1,6 @@
 <template>
-  <header class="section">
-    <div class="container">
+  <section class="hero">
+    <div class="hero-body">
       <b-navbar :transparent="true" :fixed-top="true" type="is-black" :is-active.sync="navbarIsOpen">
         <template slot="brand">
           <b-navbar-item>
@@ -11,18 +11,22 @@
         </template>
         <template slot="start">
           <b-navbar-item @click="() => {this.$router.push('/user')}">
-            <font-awesome-icon size="lg" icon="school"></font-awesome-icon>
-            <p style="margin-left: 10px;">{{labels.Home}}</p>
+            <div class="flex">
+              <font-awesome-icon size="lg" icon="school"></font-awesome-icon>
+              <p style="margin-left: 10px;">{{labels.Home}}</p>
+            </div>
           </b-navbar-item>
           <b-navbar-item>
-            <font-awesome-icon size="lg" icon="book-open"></font-awesome-icon>
-            <p style="margin-left: 10px;">{{labels.Library}}</p>
+            <div class="flex">
+              <font-awesome-icon size="lg" icon="book-open"></font-awesome-icon>
+              <p style="margin-left: 10px;">{{labels.Library}}</p>
+            </div>
           </b-navbar-item>
         </template>
         <template slot="end">
           <b-navbar-item>
             <b-dropdown aria-role="list">
-              <div slot="trigger">
+              <div slot="trigger" class="flex">
                 <font-awesome-icon size="lg" icon="comments"></font-awesome-icon>
                 <p style="margin-left: 10px;">{{labels.Messages}}</p>
               </div>
@@ -33,21 +37,27 @@
             </b-dropdown>
           </b-navbar-item>
           <b-navbar-item>
-            <font-awesome-icon size="lg" icon="bell"></font-awesome-icon>
-            <p style="margin-left: 10px;">{{labels.Notifications}}</p>
+            <div class="flex">
+              <font-awesome-icon size="lg" icon="bell"></font-awesome-icon>
+              <p style="margin-left: 10px;">{{labels.Notifications}}</p>
+            </div>
           </b-navbar-item>
-          <b-navbar-item>
-            <font-awesome-icon size="lg" icon="cog" @click="$router.push('/settings')"></font-awesome-icon>
-            <p style="margin-left: 10px;">{{labels.Settings}}</p>
+          <b-navbar-item @click="$router.push('/settings')">
+            <div class="flex">
+              <font-awesome-icon size="lg" icon="cog"></font-awesome-icon>
+              <p style="margin-left: 10px;">{{labels.Settings}}</p>
+            </div>
           </b-navbar-item>
           <b-navbar-item @click="logout">
-            <font-awesome-icon size="lg" icon="sign-out-alt"></font-awesome-icon>
-            <p style="margin-left: 10px;">{{labels.Logout}}</p>
+            <div class="flex">
+              <font-awesome-icon size="lg" icon="sign-out-alt"></font-awesome-icon>
+              <p style="margin-left: 10px;">{{labels.Logout}}</p>
+            </div>
           </b-navbar-item>
         </template>
       </b-navbar>
     </div>
-  </header>
+  </section>
 </template>
 
 <script>
@@ -77,7 +87,8 @@ export default {
           Library: "Library",
           Messages: "Messages",
           Notifications: "Notifications",
-          Logout: "Logout"
+          Logout: "Logout",
+          Settings: "Settings"
         }
       } else {
         return {
@@ -114,5 +125,8 @@ nav.navbar.is-fixed-top {
 }
 body {
   padding-top: 0px !important;
+}
+.flex {
+  display: flex; 
 }
 </style>
